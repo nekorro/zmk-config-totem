@@ -79,13 +79,31 @@
             mods = <(MOD_LCTL|MOD_RCTL)>;
         };
 
-        KP_SPACE_SHIFT_BACKSPACE: KP_SPACE_SHIFT_BACKSPACE {
+        UBER_SPACE: UBER_SPACE {
             compatible = "zmk,behavior-mod-morph";
-            label = "KP_SPACE_SHIFT_BACKSPACE";
-            bindings = <&kp SPACE>, <&kp BACKSPACE>;
+            label = "UBER_SPACE";
+            bindings = <&kp SPACE>, <&KP_SPACE_SHIFT_ENTER>;
+
+            #binding-cells = <0>;
+            mods = <(MOD_LSFT|MOD_RSFT|MOD_LCTL|MOD_RCTL)>;
+        };
+
+        KP_SPACE_SHIFT_ENTER: KP_SPACE_SHIFT_ENTER {
+            compatible = "zmk,behavior-mod-morph";
+            label = "KP_SPACE_SHIFT_ENTER";
+            bindings = <&kp SPACE>, <&kp ENTER>;
 
             #binding-cells = <0>;
             mods = <(MOD_LSFT|MOD_RSFT)>;
+        };
+
+        KP_RU_E_ALT_RU_YO: KP_RU_E_ALT_RU_YO {
+            compatible = "zmk,behavior-mod-morph";
+            label = "KP_RU_E_ALT_RU_YO";
+            bindings = <&kp T>, <&kp GRAVE>;
+
+            #binding-cells = <0>;
+            mods = <(MOD_LALT|MOD_RALT)>;
         };
     };
 
@@ -97,40 +115,41 @@
         Base {
             label = "Base";
             bindings = <
-              &kp Q  &kp W  &kp E           &kp R      &kp T                        &kp Y    &kp U   &kp I      &kp O    &kp P
-              &kp A  &kp S  &kp D           &kp F      &kp G                        &kp H    &kp J   &kp K      &kp L    &kp SEMICOLON
-&lt 3 ESCAPE  &kp Z  &kp X  &kp C           &kp V      &kp B                        &kp N    &kp M   &kp COMMA  &kp DOT  &kp SLASH      &UBER_DOT
-                            &kp LEFT_SHIFT  &kp LCTRL  &KP_SPACE_SHIFT_BACKSPACE    &kp RET  &tog 2  &tog 1
+              &kp Q  &kp W  &kp E   &kp R   &KP_RU_E_ALT_RU_YO    &kp Y      &kp U           &kp I         &kp O    &kp P
+              &kp A  &kp S  &kp D   &kp F   &kp G                 &kp H      &kp J           &kp K         &kp L    &kp SEMICOLON
+&lt 0 ESCAPE  &kp Z  &kp X  &kp C   &kp V   &kp B                 &kp N      &kp M           &kp COMMA     &kp DOT  &kp SLASH      &UBER_DOT
+                            &tog 2  &tog 1  &UBER_SPACE           &kp LCTRL  &kp LEFT_SHIFT  &kp LEFT_ALT
+            >;
+        };
+
+        NUM {
+            bindings = <
+        &kp N1    &kp N2    &kp N3     &kp N4     &kp N5     &kp N6   &kp N7     &kp N8     &kp N9    &kp N0
+        &kp LGUI  &kp LALT  &kp LCTRL  &kp LSHFT  &kp F11    &kp F12  &kp RCTRL  &kp RSHFT  &kp RALT  &kp RGUI
+&trans  &kp F1    &kp F2    &kp F3     &kp F4     &kp F5     &kp F6   &kp F7     &kp F8     &kp F9    &kp F10   &trans
+                            &trans     &trans     &trans     &trans   &trans     &tog 3
+            >;
+
+            label = "Num";
+        };
+
+        SYM {
+            label = "Sym";
+            bindings = <
+        &kp EXCL  &kp AT  &kp HASH  &kp DOLLAR  &kp PERCENT    &kp CARET  &kp AMPERSAND  &kp KP_ASTERISK  &kp SQT  &kp DQT
+        &trans    &trans  &trans    &trans      &trans         &trans     &trans         &trans           &trans   &trans
+&trans  &trans    &trans  &trans    &trans      &trans         &kp UNDER  &kp EQUAL      &trans           &trans   &kp SLASH  &kp HOME
+                          &trans    &trans      &trans         &trans     &tog 3         &trans
             >;
         };
 
         Nav {
             label = "Nav";
             bindings = <
-              &trans          &trans       &kp UP_ARROW  &trans     &kp LBRC    &kp RBRC  &kp NUMBER_7  &kp NUMBER_8  &kp NUMBER_9  &kp PLUS
-              &kp LEFT_SHIFT  &kp LEFT     &kp DOWN      &kp RIGHT  &kp LBKT    &kp RBKT  &kp NUMBER_4  &kp NUMBER_5  &kp NUMBER_6  &kp MINUS
-&kp LEFT_ALT  &trans          &kp PAGE_UP  &trans        &kp PG_DN  &kp LPAR    &kp RPAR  &kp NUMBER_1  &kp NUMBER_2  &kp NUMBER_3  &kp KP_MULTIPLY  &trans
-                                           &trans        &trans     &trans      &trans    &trans        &kp NUMBER_0
-            >;
-        };
-
-        Sym {
-            label = "Sym";
-            bindings = <
-        &kp EXCL  &kp AT  &kp HASH  &kp DOLLAR  &kp PERCENT    &kp CARET  &kp AMPERSAND  &kp KP_ASTERISK  &kp SQT  &kp DQT
-        &trans    &trans  &trans    &trans      &trans         &trans     &trans         &trans           &trans   &trans
-&trans  &trans    &trans  &trans    &trans      &trans         &kp UNDER  &kp EQUAL      &trans           &trans   &kp SLASH  &kp HOME
-                          &trans    &trans      &trans         &trans     &trans         &trans
-            >;
-        };
-
-        Fun {
-            label = "Fun";
-            bindings = <
-        &trans  &trans  &trans  &trans  &trans    &trans  &trans  &trans  &trans  &kp F1
-        &trans  &trans  &trans  &trans  &to 5     &trans  &trans  &trans  &trans  &kp F10
-&trans  &trans  &trans  &trans  &trans  &trans    &trans  &trans  &trans  &trans  &kp F20  &trans
-                        &trans  &trans  &trans    &trans  &trans  &trans
+              &trans          &trans       &trans    &trans     &kp LBRC    &kp RBRC  &kp NUMBER_7  &kp NUMBER_8  &kp NUMBER_9  &kp PLUS
+              &kp LEFT_SHIFT  &kp LEFT     &kp DOWN  &kp RIGHT  &kp LBKT    &kp RBKT  &kp NUMBER_4  &kp NUMBER_5  &kp NUMBER_6  &kp MINUS
+&kp LEFT_ALT  &trans          &kp PAGE_UP  &trans    &kp PG_DN  &kp LPAR    &kp RPAR  &kp NUMBER_1  &kp NUMBER_2  &kp NUMBER_3  &kp KP_MULTIPLY  &trans
+                                           &trans    &trans     &trans      &trans    &trans        &kp NUMBER_0
             >;
         };
 
