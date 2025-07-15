@@ -116,7 +116,14 @@
         };
     };
 
-    combos { compatible = "zmk,combos"; };
+    combos {
+        compatible = "zmk,combos";
+
+        tog4 {
+            bindings = <&tog 4>;
+            key-positions = <33 34>;
+        };
+    };
 
     keymap {
         compatible = "zmk,keymap";
@@ -124,10 +131,10 @@
         Base {
             label = "Base";
             bindings = <
-         &kp Q  &kp W  &kp E         &kp R             &KP_RU_E_ALT_RU_YO     &kp Y   &kp U   &kp I           &kp O    &kp P
-         &kp A  &kp S  &kp D         &kp F             &kp G                  &kp H   &kp J   &kp K           &kp L    &kp SEMICOLON
-&kp TAB  &kp Z  &kp X  &kp C         &kp V             &kp B                  &kp N   &kp M   &kp COMMA       &kp DOT  &kp SLASH      &UBER_DOT
-                       &kp LEFT_ALT  &kp LEFT_CONTROL  &KP_SPACE_CTRL_TOG4    &tog 1  &tog 2  &kp LEFT_SHIFT
+         &kp Q  &kp W  &kp E         &kp R             &KP_RU_E_ALT_RU_YO    &kp Y   &kp U   &kp I           &kp O    &kp P
+         &kp A  &kp S  &kp D         &kp F             &kp G                 &kp H   &kp J   &kp K           &kp L    &kp SEMICOLON
+&kp TAB  &kp Z  &kp X  &kp C         &kp V             &kp B                 &kp N   &kp M   &kp COMMA       &kp DOT  &kp SLASH      &UBER_DOT
+                       &kp LEFT_ALT  &kp LEFT_CONTROL  &kp SPACE             &tog 1  &tog 2  &kp LEFT_SHIFT
             >;
         };
 
@@ -148,7 +155,7 @@
         &kp EXCL   &kp AT         &kp HASH          &kp DOLLAR        &kp PERCENT       &kp CARET        &kp AMPERSAND  &kp KP_ASTERISK    &kp SQT          &kp DQT
         &kp TILDE  &trans         &kp LEFT_BRACKET  &kp LPAR          &kp LEFT_BRACE    &kp RIGHT_BRACE  &kp RPAR       &kp RIGHT_BRACKET  &trans           &trans
 &trans  &trans     &kp LESS_THAN  &kp EQUAL         &kp GREATER_THAN  &trans            &kp UNDERSCORE   &kp MINUS      &kp PLUS           &kp KP_MULTIPLY  &trans   &trans
-                                  &trans            &trans            &trans            &tog 3           &trans         &caps_word
+                                  &kp DELETE        &kp BACKSPACE     &kp ENTER         &tog 3           &trans         &caps_word
             >;
         };
 
@@ -165,9 +172,9 @@
         Button {
             label = "Button";
             bindings = <
-        &trans    &trans        &trans    &trans     &out OUT_BLE    &kp C_BRIGHTNESS_INC   &kp K_VOLUME_UP    &trans      &trans  &bt BT_SEL 0
-        &kp LEFT  &kp UP_ARROW  &kp DOWN  &kp RIGHT  &out OUT_TOG    &kp C_BRIGHTNESS_DEC   &kp K_VOLUME_DOWN  &trans      &trans  &bt BT_SEL 1
-&trans  &trans    &trans        &trans    &trans     &out OUT_USB    &kp C_BRIGHTNESS_AUTO  &kp K_MUTE         &trans      &trans  &bt BT_SEL 2  &bt BT_CLR
+        &trans    &trans        &trans    &trans     &out OUT_BLE    &kp C_BRIGHTNESS_INC   &kp K_VOLUME_UP    &kp C_AC_DESKTOP_SHOW_ALL_WINDOWS  &trans  &bt BT_SEL 0
+        &kp LEFT  &kp UP_ARROW  &kp DOWN  &kp RIGHT  &out OUT_TOG    &kp C_BRIGHTNESS_DEC   &kp K_VOLUME_DOWN  &trans                             &trans  &bt BT_SEL 1
+&trans  &trans    &trans        &trans    &trans     &out OUT_USB    &kp C_BRIGHTNESS_AUTO  &kp K_MUTE         &trans                             &trans  &bt BT_SEL 2  &bt BT_CLR
                                 &trans    &trans     &trans          &kp C_PREV             &kp C_PLAY_PAUSE   &kp C_NEXT
             >;
         };
