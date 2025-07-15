@@ -145,9 +145,9 @@
         Sym {
             label = "Sym";
             bindings = <
-        &kp EXCL  &kp AT  &kp HASH          &kp DOLLAR  &kp PERCENT       &kp CARET        &kp AMPERSAND  &kp KP_ASTERISK    &kp SQT  &kp DQT
-        &trans    &trans  &kp LEFT_BRACKET  &kp LPAR    &kp LEFT_BRACE    &kp RIGHT_BRACE  &kp RPAR       &kp RIGHT_BRACKET  &trans   &trans
-&trans  &trans    &trans  &trans            &trans      &trans            &kp UNDER        &kp EQUAL      &trans             &trans   &kp SLASH  &kp HOME
+        &kp EXCL  &kp AT  &kp HASH          &kp DOLLAR  &kp PERCENT       &kp CARET        &kp AMPERSAND  &kp KP_ASTERISK    &kp SQT           &kp DQT
+        &trans    &trans  &kp LEFT_BRACKET  &kp LPAR    &kp LEFT_BRACE    &kp RIGHT_BRACE  &kp RPAR       &kp RIGHT_BRACKET  &trans            &trans
+&trans  &trans    &trans  &trans            &trans      &trans            &trans           &kp LESS_THAN  &kp EQUAL          &kp GREATER_THAN  &trans   &kp HOME
                           &trans            &trans      &trans            &tog 3           &trans         &trans
             >;
         };
@@ -155,10 +155,10 @@
         E1 {
             label = "E1";
             bindings = <
-        &trans  &trans  &trans  &trans  &trans    &trans  &trans  &trans  &trans  &trans
-        &trans  &trans  &trans  &trans  &trans    &trans  &trans  &trans  &trans  &trans
-&trans  &trans  &trans  &trans  &trans  &trans    &trans  &trans  &trans  &trans  &trans  &trans
-                        &trans  &trans  &trans    &trans  &trans  &trans
+        &trans        &trans        &trans          &trans     &trans    &trans  &trans    &trans         &trans       &trans
+        &kp LEFT_GUI  &kp LEFT_ALT  &kp LEFT_SHIFT  &kp LCTRL  &trans    &trans  &kp HOME  &kp PAGE_DOWN  &kp PAGE_UP  &kp END
+&trans  &trans        &trans        &trans          &trans     &trans    &trans  &trans    &trans         &trans       &trans   &trans
+                                    &trans          &trans     &trans    &trans  &trans    &trans
             >;
         };
 
