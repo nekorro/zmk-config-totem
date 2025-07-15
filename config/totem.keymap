@@ -105,6 +105,15 @@
             #binding-cells = <0>;
             mods = <(MOD_LALT|MOD_RALT)>;
         };
+
+        KP_SPACE_CTRL_TOG4: KP_SPACE_CTRL_TOG4 {
+            compatible = "zmk,behavior-mod-morph";
+            label = "KP_SPACE_CTRL_TOG4";
+            bindings = <&kp SPACE>, <&tog 4>;
+
+            #binding-cells = <0>;
+            mods = <(MOD_LCTL|MOD_RCTL)>;
+        };
     };
 
     combos { compatible = "zmk,combos"; };
@@ -115,41 +124,41 @@
         Base {
             label = "Base";
             bindings = <
-              &kp Q  &kp W  &kp E       &kp R             &KP_RU_E_ALT_RU_YO    &kp Y   &kp U   &kp I         &kp O    &kp P
-              &kp A  &kp S  &kp D       &kp F             &kp G                 &kp H   &kp J   &kp K         &kp L    &kp SEMICOLON
-&lt 0 ESCAPE  &kp Z  &kp X  &kp C       &kp V             &kp B                 &kp N   &kp M   &kp COMMA     &kp DOT  &kp SLASH      &UBER_DOT
-                            &kp LSHIFT  &kp LEFT_CONTROL  &kp SPACE             &tog 1  &tog 2  &kp LEFT_ALT
+              &kp Q  &kp W  &kp E       &kp R             &KP_RU_E_ALT_RU_YO     &kp Y   &kp U   &kp I         &kp O    &kp P
+              &kp A  &kp S  &kp D       &kp F             &kp G                  &kp H   &kp J   &kp K         &kp L    &kp SEMICOLON
+&lt 0 ESCAPE  &kp Z  &kp X  &kp C       &kp V             &kp B                  &kp N   &kp M   &kp COMMA     &kp DOT  &kp SLASH      &UBER_DOT
+                            &kp LSHIFT  &kp LEFT_CONTROL  &KP_SPACE_CTRL_TOG4    &tog 1  &tog 2  &kp LEFT_ALT
             >;
         };
 
-        NUM {
+        Num-Nav {
             bindings = <
-        &kp N1    &kp N2    &kp N3      &kp N4     &kp N5       &kp N6   &kp N7          &kp N8          &kp N9        &kp N0
-        &kp LGUI  &kp LALT  &kp LSHIFT  &kp LCTRL  &kp F11      &kp F12  &kp LEFT_ARROW  &kp DOWN_ARROW  &kp UP_ARROW  &kp RIGHT
-&trans  &kp F1    &kp F2    &kp F3      &kp F4     &kp F5       &kp F6   &kp F7          &kp F8          &kp F9        &kp F10    &trans
-                            &kp COMMA   &kp DOT    &kp ENTER    &trans   &tog 3          &trans
+        &kp N1    &kp N2    &kp N3      &kp N4         &kp N5       &kp N6   &kp N7          &kp N8          &kp N9        &kp N0
+        &kp LGUI  &kp LALT  &kp LSHIFT  &kp LCTRL      &kp F11      &kp F12  &kp LEFT_ARROW  &kp DOWN_ARROW  &kp UP_ARROW  &kp RIGHT
+&trans  &kp F1    &kp F2    &kp F3      &kp F4         &kp F5       &kp F6   &kp F7          &kp F8          &kp F9        &kp F10    &trans
+                            &kp DELETE  &kp BACKSPACE  &kp ENTER    &trans   &tog 3          &trans
             >;
 
-            label = "Num";
+            label = "Num-Nav";
         };
 
-        SYM {
+        Sym {
             label = "Sym";
             bindings = <
-        &kp EXCL  &kp AT  &kp HASH  &kp DOLLAR  &kp PERCENT      &kp CARET  &kp AMPERSAND  &kp KP_ASTERISK  &kp SQT  &kp DQT
-        &trans    &trans  &trans    &trans      &trans           &trans     &trans         &trans           &trans   &trans
-&trans  &trans    &trans  &trans    &trans      &trans           &kp UNDER  &kp EQUAL      &trans           &trans   &kp SLASH  &kp HOME
-                          &trans    &trans      &kp BACKSPACE    &tog 3     &trans         &trans
+        &kp EXCL  &kp AT  &kp HASH          &kp DOLLAR  &kp PERCENT       &kp CARET        &kp AMPERSAND  &kp KP_ASTERISK    &kp SQT  &kp DQT
+        &trans    &trans  &kp LEFT_BRACKET  &kp LPAR    &kp LEFT_BRACE    &kp RIGHT_BRACE  &kp RPAR       &kp RIGHT_BRACKET  &trans   &trans
+&trans  &trans    &trans  &trans            &trans      &trans            &kp UNDER        &kp EQUAL      &trans             &trans   &kp SLASH  &kp HOME
+                          &trans            &trans      &trans            &tog 3           &trans         &trans
             >;
         };
 
-        Nav {
-            label = "Nav";
+        E1 {
+            label = "E1";
             bindings = <
-              &trans          &trans       &trans    &trans     &kp LBRC    &kp RBRC  &kp NUMBER_7  &kp NUMBER_8  &kp NUMBER_9  &kp PLUS
-              &kp LEFT_SHIFT  &kp LEFT     &kp DOWN  &kp RIGHT  &kp LBKT    &kp RBKT  &kp NUMBER_4  &kp NUMBER_5  &kp NUMBER_6  &kp MINUS
-&kp LEFT_ALT  &trans          &kp PAGE_UP  &trans    &kp PG_DN  &kp LPAR    &kp RPAR  &kp NUMBER_1  &kp NUMBER_2  &kp NUMBER_3  &kp KP_MULTIPLY  &trans
-                                           &trans    &trans     &trans      &trans    &trans        &kp NUMBER_0
+        &trans  &trans  &trans  &trans  &trans    &trans  &trans  &trans  &trans  &trans
+        &trans  &trans  &trans  &trans  &trans    &trans  &trans  &trans  &trans  &trans
+&trans  &trans  &trans  &trans  &trans  &trans    &trans  &trans  &trans  &trans  &trans  &trans
+                        &trans  &trans  &trans    &trans  &trans  &trans
             >;
         };
 
@@ -163,7 +172,7 @@
             >;
         };
 
-        Gaming {
+        Gaming1 {
             bindings = <
             &trans  &trans  &trans     &trans        &trans    &trans  &trans  &trans  &trans  &trans
             &kp A   &kp S   &kp D      &kp F         &mo 6     &trans  &trans  &trans  &trans  &trans
@@ -171,10 +180,10 @@
                             &kp LCTRL  &kp LEFT_ALT  &trans    &trans  &trans  &trans
             >;
 
-            label = "Gaming";
+            label = "Gaming1";
         };
 
-        Gaming+ {
+        Gaming2 {
             bindings = <
          &kp NUMBER_1  &kp NUMBER_2  &kp NUMBER_3  &kp NUMBER_4  &kp NUMBER_5    &trans  &trans  &trans  &trans  &kp LC(RA(DEL))
          &kp L         &kp O         &kp Y         &kp K         &kp G           &kp F5  &trans  &trans  &trans  &trans
@@ -182,7 +191,7 @@
                                      &kp J         &kp I         &kp M           &trans  &trans  &trans
             >;
 
-            label = "Gaming+";
+            label = "Gaming2";
         };
     };
 };
