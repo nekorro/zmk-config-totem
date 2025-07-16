@@ -166,7 +166,7 @@
         };
 
         AZ_LANG_COMBO {
-            bindings = <&none>;
+            bindings = <&LANG_MACRO>;
             key-positions = <21 10>;
         };
     };
