@@ -207,9 +207,9 @@
         Sym {
             label = "SYM";
             bindings = <
-           &kp EXCL   &kp AT         &kp HASH          &kp DOLLAR        &kp PERCENT       &kp CARET        &kp AMPERSAND  &kp KP_ASTERISK    &kp SQT          &kp DQT
-           &kp GRAVE  &kp BACKSLASH  &kp LEFT_BRACKET  &kp LPAR          &kp LEFT_BRACE    &kp RIGHT_BRACE  &kp RPAR       &kp RIGHT_BRACKET  &kp SLASH        &kp PIPE
-&kp TILDE  &kp COMMA  &kp LESS_THAN  &kp EQUAL         &kp GREATER_THAN  &kp QUESTION      &kp UNDERSCORE   &kp MINUS      &kp PLUS           &kp KP_MULTIPLY  &kp DOT   &kp ENTER
+           &kp EXCL   &kp AT         &kp HASH          &kp DOLLAR        &kp PERCENT       &kp CARET        &kp AMPERSAND  &kp SINGLE_QUOTE   &kp DOUBLE_QUOTES  &kp QUESTION
+           &kp GRAVE  &kp BACKSLASH  &kp LEFT_BRACKET  &kp LPAR          &kp LEFT_BRACE    &kp RIGHT_BRACE  &kp RPAR       &kp RIGHT_BRACKET  &kp SLASH          &kp PIPE
+&kp TILDE  &kp COMMA  &kp LESS_THAN  &kp EQUAL         &kp GREATER_THAN  &kp QUESTION      &kp UNDERSCORE   &kp MINUS      &kp PLUS           &kp KP_MULTIPLY    &kp DOT       &kp ENTER
                                      &kp ENTER         &kp DELETE        &kp BACKSPACE     &mo 3            &trans         &caps_word
             >;
         };
