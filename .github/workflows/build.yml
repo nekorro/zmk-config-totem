@@ -21,8 +21,8 @@ jobs:
       - name: Fetch master branch
         run: git fetch origin master
 
-      - name: Copy totem.conf from master
-        run: git checkout origin/master -- ./config/totem.conf
+      - name: Copy totem.keymap from master
+        run: git checkout origin/master -- ./config/totem.keymap
 
       - name: Upload modified sources as artifact for downstream workflow
         uses: actions/upload-artifact@v4
