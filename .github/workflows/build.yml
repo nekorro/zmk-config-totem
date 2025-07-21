@@ -27,9 +27,12 @@ jobs:
       - name: Upload modified sources as artifact for downstream workflow
         uses: actions/upload-artifact@v4
         with:
-          name: modified-source
-          path: .
+          name: modified-config
+          path: ./config
   
   build:
     uses: zmkfirmware/zmk/.github/workflows/build-user-config.yml@main
     needs: prepare_and_build
+    with:
+      config_path: modified-config
+    secrets: inherit
