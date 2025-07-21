@@ -1,5 +1,27 @@
-on: [push, pull_request, workflow_dispatch]
+on:
+  push:
+    branches:
+      - master
+      - dongle
+  pull_request:
+    branches:
+      - dongle
+      - master
+  workflow_dispatch:
 
 jobs:
+  prepare:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout dongle branch
+        uses: actions/checkout@v3
+        with:
+          ref: dongle
+
+      - name: Copy totem.conf from master
+        run: |
+          git fetch origin master
+          git checkout origin/master -- ./config/totem.conf
+          
   build:
     uses: zmkfirmware/zmk/.github/workflows/build-user-config.yml@main
