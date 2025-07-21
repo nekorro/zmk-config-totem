@@ -189,7 +189,7 @@
          &kp Q  &kp W  &kp E         &kp R             &KP_RU_E_ALT_RU_YO    &kp Y  &kp U                &kp I           &kp O    &kp P
          &kp A  &kp S  &kp D         &kp F             &kp G                 &kp H  &kp J                &kp K           &kp L    &KP_RU_ZH_ALT_RU_H
 &kp TAB  &kp Z  &kp X  &kp C         &kp V             &kp B                 &kp N  &KP_RU_MZ_ALT_RU_TZ  &kp COMMA       &kp DOT  &UBER_DOT           &KP_SL_BSL_CTRL_PIPE
-                       &kp LEFT_ALT  &kp LEFT_CONTROL  &kp SPACE             &mo 1  &mo 2                &kp LEFT_SHIFT
+                       &kp LEFT_ALT  &kp LEFT_CONTROL  &kp SPACE             &mo 2  &mo 1                &kp LEFT_SHIFT
             >;
         };
 
