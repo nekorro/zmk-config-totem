@@ -10,18 +10,26 @@ on:
   workflow_dispatch:
 
 jobs:
-  prepare:
+  prepare_and_build:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout dongle branch
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
         with:
-          ref: dongle
+          fetch-depth: 0 
+          
+      - name: Fetch master branch
+        run: git fetch origin master
 
       - name: Copy totem.conf from master
-        run: |
-          git fetch origin master
-          git checkout origin/master -- ./config/totem.conf
-          
+        run: git checkout origin/master -- ./config/totem.conf
+
+      - name: Upload modified sources as artifact for downstream workflow
+        uses: actions/upload-artifact@v4
+        with:
+          name: modified-source
+          path: .
+  
   build:
     uses: zmkfirmware/zmk/.github/workflows/build-user-config.yml@main
+    needs: prepare_and_build
