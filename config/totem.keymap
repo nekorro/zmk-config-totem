@@ -173,12 +173,12 @@
 
         delete-left {
             bindings = <&kp DEL>;
-            key-positions = <20 21>;
+            key-positions = <3 4>;
         };
 
         delete-right {
             bindings = <&kp DEL>;
-            key-positions = <31 30>;
+            key-positions = <5 6>;
         };
     };
 
