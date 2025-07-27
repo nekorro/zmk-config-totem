@@ -57,14 +57,6 @@
 
 #define MAX_TIMER __UINT32_MAX__ // around 50 days
 
-#define STICKY_FOREVER(NAME, BIND) \
-    NAME: NAME { \
-        compatible = "zmk,behavior-sticky-key"; \
-        #binding-cells = <1>; \
-        bindings = <BIND>; \
-        release-after-ms = <MAX_TIMER>; \
-        ignore-modifiers; \
-    };
 #define MODMORPH(NAME, NORMAL, MORPHED, MODS, KEEP_MODS) \
     NAME: NAME { \
         compatible = "zmk,behavior-mod-morph"; \
@@ -78,105 +70,6 @@
 
 / {
     behaviors {
-        MACRO_ONE_PARAM(
-            m_release_key_twice,
-            &macro_release
-                &macro_param_1to1 &kp PARAM_1
-                &macro_param_1to1 &kp PARAM_1
-        )
-
-
-        MACRO_ONE_PARAM(
-            m_press_key_twice,
-            &macro_press
-                &macro_param_1to1 &kp PARAM_1
-                &macro_param_1to1 &kp PARAM_1
-            &macro_pause_for_release
-            &macro_tap
-                &m_release_key_twice PARAM_1
-        )
-
-        STICKY_FOREVER(sticky_forever, &m_press_key_twice)
-
-        MODMORPH(
-            cm_gui,
-            &sticky_forever LGUI,
-            &m_release_key_twice LGUI,
-            MOD_LGUI,
-            MOD_LGUI
-        )
-
-        MODMORPH(
-            cm_alt,
-            &sticky_forever LALT,
-            &m_release_key_twice LALT,
-            MOD_LALT,
-            MOD_LALT
-        )
-
-        MODMORPH(
-            cm_ctrl,
-            &sticky_forever LCTRL,
-            &m_release_key_twice LCTRL,
-            MOD_LCTL,
-            MOD_LCTL
-        )
-
-        MODMORPH(
-            cm_sft,
-            &sticky_forever LSHIFT,
-            &m_release_key_twice LSHIFT,
-            MOD_LSFT,
-            MOD_LSFT
-        )
-
-        MACRO_TWO_PARAM(
-            m_hold_mod_press_key,
-            &macro_press
-                &macro_param_1to1 &kp PARAM_1
-            &macro_tap
-                &macro_param_2to1 &kp PARAM_2
-        )
-
-        MODMORPH(
-            tabber,
-            &m_hold_mod_press_key LCTRL TAB,
-            &kp TAB,
-            MOD_LCTL,
-            MOD_LCTL
-        )
-
-        MODMORPH(
-            swapper_win,
-            &m_hold_mod_press_key LALT TAB,
-            &kp TAB,
-            MOD_LALT,
-            MOD_LALT
-        )
-
-        MODMORPH(
-            swapper_mac,
-            &m_hold_mod_press_key LGUI TAB,
-            &kp TAB,
-            MOD_LGUI,
-            MOD_LGUI
-        )
-
-        MACRO_ONE_PARAM(
-            la,
-            &macro_tap
-                &kp 0 // do nothing, fire all sticky keys
-        &macro_press
-                &macro_param_1to1 &mo PARAM_1
-            &macro_pause_for_release
-            &macro_release
-                &macro_param_1to1 &mo PARAM_1
-                &kp LSHFT
-                &kp LCTRL
-                &kp LALT
-                &kp LGUI
-        )
-
         hm: homerow_mods {
             compatible = "zmk,behavior-hold-tap";
             label = "HOMEROW_MODS";
