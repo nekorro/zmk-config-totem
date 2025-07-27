@@ -34,7 +34,6 @@
 #define PIP LS(BSLH)
 #define BSL RA(BSLH)
 #define NBSP RA(SPACE)
-
 #define NSPC LC(LG(RIGHT))
 #define PSPC LC(LG(LEFT))
 
@@ -54,7 +53,6 @@
         bindings = \
             <BINDINGS>; \
     };
-
 #define MACRO_NO_PARAM(NAME, BINDINGS)  MACRO(NAME, "zmk,behavior-macro"          , 0, BINDINGS)
 #define MACRO_ONE_PARAM(NAME, BINDINGS) MACRO(NAME, "zmk,behavior-macro-one-param", 1, BINDINGS)
 #define MACRO_TWO_PARAM(NAME, BINDINGS) MACRO(NAME, "zmk,behavior-macro-two-param", 2, BINDINGS)
@@ -69,7 +67,6 @@
         release-after-ms = <MAX_TIMER>; \
         ignore-modifiers; \
     };
-
 #define MODMORPH(NAME, NORMAL, MORPHED, MODS, KEEP_MODS) \
     NAME: NAME { \
         compatible = "zmk,behavior-mod-morph"; \
@@ -79,13 +76,11 @@
         keep-mods = <(KEEP_MODS)>; \
     };
 
-&sk {
-        release-after-ms = <60000>;
-};
+&sk { release-after-ms = <60000>; };
 
 / {
     behaviors {
-                MACRO_ONE_PARAM(
+        MACRO_ONE_PARAM(
             m_release_key_twice,
             &macro_release
                 &macro_param_1to1 &kp PARAM_1
@@ -173,7 +168,7 @@
             la,
             &macro_tap
                 &kp 0 // do nothing, fire all sticky keys
-            &macro_press
+        &macro_press
                 &macro_param_1to1 &mo PARAM_1
             &macro_pause_for_release
             &macro_release
@@ -183,7 +178,7 @@
                 &kp LALT
                 &kp LGUI
         )
-        
+
         hm: homerow_mods {
             compatible = "zmk,behavior-hold-tap";
             label = "HOMEROW_MODS";
@@ -284,6 +279,25 @@
             #binding-cells = <0>;
             mods = <(MOD_RCTL|MOD_LCTL)>;
         };
+
+        sticky_forever: sticky_forever {
+            compatible = "zmk,behavior-sticky-key";
+            label = "STICKY_FOREVER";
+            bindings = <&kp>;
+            #binding-cells = <1>;
+            ignore-modifiers;
+            release-after-ms = <1800000>;
+        };
+
+        sm_LCTRL: sm_LCTRL {
+            compatible = "zmk,behavior-mod-morph";
+            label = "SM_LCTRL";
+            bindings = <&sticky_forever LCTRL>, <&release_twice_LCTRL>;
+
+            #binding-cells = <0>;
+            mods = <(MOD_LCTL)>;
+            keep-mods = <(MOD_LCTL)>;
+        };
     };
 
     combos {
@@ -297,11 +311,6 @@
         QA_ESC_COMBO {
             bindings = <&kp ESCAPE>;
             key-positions = <0 10>;
-        };
-
-        AZ_LANG_COMBO {
-            bindings = <&LANG_MACRO>;
-            key-positions = <21 10>;
         };
 
         enter-left {
@@ -326,20 +335,12 @@
     };
 
     macros {
-        LANG_MACRO: LANG {
+        release_twice_LCTRL: release_twice_LCTRL {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
-            bindings =
-                <&macro_press>,
-                <&kp LCTRL &kp LEFT_SHIFT>,
-                <&macro_release>,
-                <&kp LCTRL &kp LEFT_SHIFT>,
-                <&macro_press>,
-                <&kp LCTRL &kp SPACE>,
-                <&macro_release>,
-                <&kp LCTRL &kp SPACE>;
+            bindings = <&macro_release>, <&kp LCTRL &kp LCTRL>;
 
-            label = "LANG";
+            label = "RELEASE_TWICE_LCTRL";
         };
     };
 
@@ -359,7 +360,7 @@
         Num {
             bindings = <
             &kp N1    &kp N2    &kp N3         &kp N4      &kp N5       &kp N6          &kp N7          &kp N8        &kp N9           &kp N0
-            &kp LGUI  &kp LALT  &kp LSHIFT     &kp LCTRL   &kp F11      &kp LEFT_ARROW  &kp DOWN_ARROW  &kp UP_ARROW  &kp RIGHT_ARROW  &kp F12
+            &kp LGUI  &kp LALT  &kp LSHIFT     &sm_LCTRL   &kp F11      &kp LEFT_ARROW  &kp DOWN_ARROW  &kp UP_ARROW  &kp RIGHT_ARROW  &kp F12
 &kp ESCAPE  &kp F1    &kp F2    &kp F3         &kp F4      &kp F5       &kp F6          &kp F7          &kp F8        &kp F9           &kp F10  &kp ENTER
                                 &kp BACKSPACE  &kp DELETE  &kp ENTER    &trans          &mo 3           &trans
             >;
