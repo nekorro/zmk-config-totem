@@ -43,6 +43,25 @@
 #define MACRO_ONE_PARAM(NAME, BINDINGS) MACRO(NAME, "zmk,behavior-macro-one-param", 1, BINDINGS)
 #define MACRO_TWO_PARAM(NAME, BINDINGS) MACRO(NAME, "zmk,behavior-macro-two-param", 2, BINDINGS)
 
+
+#define STICKY_FOREVER(NAME, BIND) \
+    NAME: NAME { \
+        compatible = "zmk,behavior-sticky-key"; \
+        #binding-cells = <1>; \
+        bindings = <BIND>; \
+        release-after-ms = <MAX_TIMER>; \
+        ignore-modifiers; \
+    };
+
+#define MODMORPH(NAME, NORMAL, MORPHED, MODS, KEEP_MODS) \
+    NAME: NAME { \
+        compatible = "zmk,behavior-mod-morph"; \
+        #binding-cells = <0>; \
+        bindings = <NORMAL>, <MORPHED>; \
+        mods = <(MODS)>; \
+        keep-mods = <(KEEP_MODS)>; \
+    };
+
 &sk { release-after-ms = <60000>; };
 
 / {
