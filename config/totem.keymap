@@ -14,6 +14,12 @@
 #include <dt-bindings/zmk/bt.h>
 #include <dt-bindings/zmk/keys.h>
 
+#define HOST_OS 0               // 0 = Windows, 1 = Linux, 2 = macOS
+#include "zmk-helpers/helper.h" // библиотека urob/zmk-helpers[4][6]
+#include "zmk-helpers/unicode-chars/windows.dtsi"
+#include "zmk-helpers/unicode-chars/linux.dtsi"
+#include "zmk-helpers/unicode-chars/macos.dtsi"
+
 #define Base        0
 #define Media       1
 #define Nav         2
@@ -26,6 +32,8 @@
 #define Gameplus    9
 
 &sk { release-after-ms = <60000>; };
+
+ZMK_UNICODE_SINGLE(dot_always, N0, N0, N2, E);   // создаёт &dot_always
 
 / {
     behaviors {
@@ -277,7 +285,7 @@
             bindings = <
          &kp Q  &kp W  &kp E         &kp R  &KP_RU_E_ALT_RU_YO    &kp Y  &kp U                &kp I             &kp O    &kp P
          &kp A  &kp S  &kp D         &kp F  &kp G                 &kp H  &kp J                &kp K             &kp L    &KP_RU_ZH_ALT_RU_H
-&kp TAB  &kp Z  &kp X  &kp C         &kp V  &kp B                 &kp N  &KP_RU_MZ_ALT_RU_TZ  &kp COMMA         &kp DOT  &KP_SL_BSL_CTRL_PIPE  &none
+&kp TAB  &kp Z  &kp X  &kp C         &kp V  &kp B                 &kp N  &KP_RU_MZ_ALT_RU_TZ  &kp COMMA         &kp DOT  &KP_SL_BSL_CTRL_PIPE  &dot_always
                        &kp LEFT_ALT  &la 3  &kp SPACE             &mo 2  &la 1                &caps_word_shift
             >;
         };
