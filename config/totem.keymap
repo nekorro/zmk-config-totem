@@ -329,10 +329,10 @@
         Sym {
             label = "SYM";
             bindings = <
-           &kp EXCL   &kp AT         &kp HASH          &kp DOLLAR        &kp PERCENT       &kp CARET        &kp AMPERSAND  &kp SINGLE_QUOTE   &kp DOUBLE_QUOTES  &kp QUESTION
-           &kp GRAVE  &kp BACKSLASH  &kp LEFT_BRACKET  &kp LPAR          &kp LEFT_BRACE    &kp RIGHT_BRACE  &kp RPAR       &kp RIGHT_BRACKET  &kp SLASH          &kp PIPE
-&kp TILDE  &kp COMMA  &kp LESS_THAN  &kp EQUAL         &kp GREATER_THAN  &kp QUESTION      &kp UNDERSCORE   &kp MINUS      &kp PLUS           &kp KP_MULTIPLY    &kp DOT       &kp ENTER
-                                     &kp BACKSPACE     &kp DELETE        &kp ENTER         &trans           &trans         &caps_word
+           &kp EXCL      &kp AT         &kp HASH          &kp DOLLAR        &kp PERCENT       &kp CARET        &kp AMPERSAND  &kp SINGLE_QUOTE   &kp DOUBLE_QUOTES  &kp GRAVE
+           &kp QUESTION  &kp BACKSLASH  &kp LEFT_BRACKET  &kp LPAR          &kp LEFT_BRACE    &kp RIGHT_BRACE  &kp RPAR       &kp RIGHT_BRACKET  &kp SLASH          &kp PIPE
+&kp TILDE  &kp COLON     &kp LESS_THAN  &kp EQUAL         &kp GREATER_THAN  &kp QUESTION      &kp UNDERSCORE   &kp MINUS      &kp PLUS           &kp KP_MULTIPLY    &kp SEMICOLON  &kp ENTER
+                                        &kp BACKSPACE     &kp DELETE        &kp ENTER         &trans           &trans         &caps_word
             >;
         };
 
