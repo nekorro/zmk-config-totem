@@ -28,6 +28,10 @@
 &sk { release-after-ms = <60000>; };
 
 / {
+    chosen {
+        zmk,charmap = &charmap_us;
+    };
+
     behaviors {
         KP_DOT_SHIFT_COMMA: KP_DOT_SHIFT_COMMA {
             compatible = "zmk,behavior-mod-morph";
