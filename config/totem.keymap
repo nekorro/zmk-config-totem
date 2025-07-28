@@ -28,10 +28,6 @@
 &sk { release-after-ms = <60000>; };
 
 / {
-    chosen {
-        zmk,charmap = &charmap_us;
-    };
-
     behaviors {
         KP_DOT_SHIFT_COMMA: KP_DOT_SHIFT_COMMA {
             compatible = "zmk,behavior-mod-morph";
@@ -178,13 +174,6 @@
             #binding-cells = <0>;
             bindings = <&kp LEFT_SHIFT>, <&caps_word>;
         };
-
-        test: test {
-            compatible = "zmk,behavior-send-string";
-            label = "TEST";
-            #binding-cells = <0>;
-            text = ".";
-        };
     };
 
     combos {
@@ -288,7 +277,7 @@
             bindings = <
          &kp Q  &kp W  &kp E         &kp R  &KP_RU_E_ALT_RU_YO    &kp Y  &kp U                &kp I             &kp O    &kp P
          &kp A  &kp S  &kp D         &kp F  &kp G                 &kp H  &kp J                &kp K             &kp L    &KP_RU_ZH_ALT_RU_H
-&kp TAB  &kp Z  &kp X  &kp C         &kp V  &kp B                 &kp N  &KP_RU_MZ_ALT_RU_TZ  &kp COMMA         &kp DOT  &KP_SL_BSL_CTRL_PIPE  &test
+&kp TAB  &kp Z  &kp X  &kp C         &kp V  &kp B                 &kp N  &KP_RU_MZ_ALT_RU_TZ  &kp COMMA         &kp DOT  &KP_SL_BSL_CTRL_PIPE  &none
                        &kp LEFT_ALT  &la 3  &kp SPACE             &mo 2  &la 1                &caps_word_shift
             >;
         };
