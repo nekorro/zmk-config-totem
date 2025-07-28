@@ -298,22 +298,26 @@
             >;
         };
 
-        NAV {
+        Nav {
             bindings = <
         &trans    &trans    &trans      &trans     &trans    &trans          &trans          &trans        &trans           &trans
         &sm_LGUI  &sm_LALT  &sm_LSHIFT  &sm_LCTRL  &trans    &kp LEFT_ARROW  &kp DOWN_ARROW  &kp UP_ARROW  &kp RIGHT_ARROW  &trans
 &trans  &trans    &trans    &trans      &trans     &trans    &trans          &trans          &trans        &trans           &trans  &trans
                             &trans      &trans     &trans    &trans          &trans          &trans
             >;
+
+            label = "NAV";
         };
 
-        EXTRA_NAV {
+        ExtraNav {
             bindings = <
         &trans  &trans          &trans        &trans          &trans             &trans          &trans          &trans        &trans           &trans
         &trans  &kp LEFT_ARROW  &kp UP_ARROW  &kp DOWN_ARROW  &kp RIGHT_ARROW    &kp LEFT_ARROW  &kp DOWN_ARROW  &kp UP_ARROW  &kp RIGHT_ARROW  &trans
 &trans  &trans  &trans          &trans        &trans          &trans             &trans          &trans          &trans        &trans           &trans  &trans
                                 &trans        &trans          &trans             &trans          &trans          &trans
             >;
+
+            label = "EXTRA_NAV";
         };
 
         Button {
