@@ -311,7 +311,7 @@
             &kp N1    &kp N2    &kp N3         &kp N4      &kp N5       &kp N6          &kp N7          &kp N8        &kp N9           &kp N0
             &sm_LGUI  &sm_LALT  &sm_LSHIFT     &sm_LCTRL   &kp F11      &kp LEFT_ARROW  &kp DOWN_ARROW  &kp UP_ARROW  &kp RIGHT_ARROW  &kp F12
 &kp ESCAPE  &kp F1    &kp F2    &kp F3         &kp F4      &kp F5       &kp F6          &kp F7          &kp F8        &kp F9           &kp F10  &UBER_DOT
-                                &kp BACKSPACE  &kp DELETE  &kp ENTER    &trans          &trans          &trans
+                                &kp BACKSPACE  &kp DELETE  &kp ENTER    &trans          &trans          &caps_word
             >;
 
             label = "NUM";
@@ -332,7 +332,7 @@
            &kp EXCL      &kp AT         &kp HASH          &kp DOLLAR        &kp PERCENT       &kp CARET        &kp AMPERSAND  &kp SINGLE_QUOTE   &kp DOUBLE_QUOTES  &kp GRAVE
            &kp QUESTION  &kp BACKSLASH  &kp LEFT_BRACKET  &kp LPAR          &kp LEFT_BRACE    &kp RIGHT_BRACE  &kp RPAR       &kp RIGHT_BRACKET  &kp SLASH          &kp PIPE
 &kp TILDE  &kp COLON     &kp LESS_THAN  &kp EQUAL         &kp GREATER_THAN  &kp QUESTION      &kp UNDERSCORE   &kp MINUS      &kp PLUS           &kp KP_MULTIPLY    &kp SEMICOLON  &kp ENTER
-                                        &kp BACKSPACE     &kp DELETE        &kp ENTER         &trans           &trans         &caps_word
+                                        &kp BACKSPACE     &kp DELETE        &kp ENTER         &trans           &trans         &trans
             >;
         };
 
