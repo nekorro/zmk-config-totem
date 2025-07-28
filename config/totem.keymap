@@ -47,6 +47,26 @@
 
 / {
     behaviors {
+        MACRO_ONE_PARAM(
+            m_release_key_twice,
+            &macro_release
+                &macro_param_1to1 &kp PARAM_1
+                &macro_param_1to1 &kp PARAM_1
+        )
+
+
+        MACRO_ONE_PARAM(
+            m_press_key_twice,
+            &macro_press
+                &macro_param_1to1 &kp PARAM_1
+                &macro_param_1to1 &kp PARAM_1
+            &macro_pause_for_release
+            &macro_tap
+                &m_release_key_twice PARAM_1
+        )
+
+        STICKY_FOREVER(sticky_forever, &m_press_key_twice)
+
         KP_DOT_SHIFT_COMMA: KP_DOT_SHIFT_COMMA {
             compatible = "zmk,behavior-mod-morph";
             label = "KP_DOT_SHIFT_COMMA";
@@ -137,15 +157,6 @@
             mods = <(MOD_RCTL|MOD_LCTL)>;
         };
 
-        sticky_forever: sticky_forever {
-            compatible = "zmk,behavior-sticky-key";
-            label = "STICKY_FOREVER";
-            bindings = <&kp>;
-            #binding-cells = <1>;
-            ignore-modifiers;
-            release-after-ms = <1800000>;
-        };
-
         sm_LCTRL: sm_LCTRL {
             compatible = "zmk,behavior-mod-morph";
             label = "SM_LCTRL";
@@ -185,6 +196,38 @@
             mods = <(MOD_LGUI)>;
             keep-mods = <(MOD_LGUI)>;
         };
+
+        MODMORPH(
+            cm_gui,
+            &sticky_forever LGUI,
+            &m_release_key_twice LGUI,
+            MOD_LGUI,
+            MOD_LGUI
+        )
+
+        MODMORPH(
+            cm_alt,
+            &sticky_forever LALT,
+            &m_release_key_twice LALT,
+            MOD_LALT,
+            MOD_LALT
+        )
+
+        MODMORPH(
+            cm_ctrl,
+            &sticky_forever LCTRL,
+            &m_release_key_twice LCTRL,
+            MOD_LCTL,
+            MOD_LCTL
+        )
+
+        MODMORPH(
+            cm_sft,
+            &sticky_forever LSHIFT,
+            &m_release_key_twice LSHIFT,
+            MOD_LSFT,
+            MOD_LSFT
+        )
 
         MACRO_ONE_PARAM(
             la,
@@ -298,7 +341,7 @@
         NAV {
             bindings = <
         &trans    &trans  &trans    &trans     &trans    &trans  &trans     &trans      &trans    &trans
-        &kp LEFT  &kp UP  &kp DOWN  &kp RIGHT  &trans    &trans  &sm_LCTRL  &sm_LSHIFT  &sm_LALT  &sm_LGUI
+        &kp LEFT  &kp UP  &kp DOWN  &kp RIGHT  &trans    &trans  &cm_ctrl   &cm_sft     &cm_alt   &cm_gui
 &trans  &trans    &trans  &trans    &trans     &trans    &trans  &trans     &trans      &trans    &trans    &trans
                           &trans    &trans     &trans    &trans  &trans     &trans
             >;
