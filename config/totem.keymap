@@ -27,8 +27,6 @@
 
 &sk { release-after-ms = <60000>; };
 
-ZMK_UNICODE_SINGLE(dot_always, N0, N0, N2, E);   // создаёт &dot_always
-
 / {
     behaviors {
         KP_DOT_SHIFT_COMMA: KP_DOT_SHIFT_COMMA {
