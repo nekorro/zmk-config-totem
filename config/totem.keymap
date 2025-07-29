@@ -25,8 +25,6 @@
 #define Game        8
 #define Gameplus    9
 
-&sk { release-after-ms = <60000>; };
-
 / {
     behaviors {
         KP_DOT_SHIFT_COMMA: KP_DOT_SHIFT_COMMA {
@@ -54,69 +52,6 @@
 
             #binding-cells = <0>;
             mods = <(MOD_LALT|MOD_RALT)>;
-        };
-
-        KP_RU_E_ALT_RU_YO: KP_RU_E_ALT_RU_YO {
-            compatible = "zmk,behavior-mod-morph";
-            label = "KP_RU_E_ALT_RU_YO";
-            bindings = <&kp T>, <&kp GRAVE>;
-
-            #binding-cells = <0>;
-            mods = <(MOD_LALT|MOD_RALT)>;
-        };
-
-        KP_RU_MZ_ALT_RU_TZ: KP_RU_MZ_ALT_RU_TZ {
-            compatible = "zmk,behavior-mod-morph";
-            label = "KP_RU_MZ_ALT_RU_TZ";
-            bindings = <&kp M>, <&kp RIGHT_BRACKET>;
-
-            #binding-cells = <0>;
-            mods = <(MOD_RALT|MOD_LALT)>;
-        };
-
-        KP_RU_ZH_ALT_RU_H: KP_RU_ZH_ALT_RU_H {
-            compatible = "zmk,behavior-mod-morph";
-            label = "KP_RU_ZH_ALT_RU_H";
-            bindings = <&kp SEMICOLON>, <&kp LEFT_BRACKET>;
-
-            #binding-cells = <0>;
-            mods = <(MOD_RALT|MOD_LALT)>;
-        };
-
-        KP_QT_SHIFT_DQT: KP_QT_SHIFT_DQT {
-            compatible = "zmk,behavior-mod-morph";
-            label = "KP_QT_SHIFT_DQT";
-            bindings = <&kp SQT>, <&kp DQT>;
-
-            #binding-cells = <0>;
-            mods = <(MOD_LSFT|MOD_RSFT)>;
-        };
-
-        KP_SQTDQT_CTRL_GRAVE: KP_SQTDQT_CTRL_GRAVE {
-            compatible = "zmk,behavior-mod-morph";
-            label = "KP_SQTDQT_CTRL_GRAVE";
-            bindings = <&KP_QT_SHIFT_DQT>, <&kp GRAVE>;
-
-            #binding-cells = <0>;
-            mods = <(MOD_LCTL|MOD_RCTL)>;
-        };
-
-        KP_SL_SHIFT_BSL: KP_SL_SHIFT_BSL {
-            compatible = "zmk,behavior-mod-morph";
-            label = "KP_SL_SHIFT_BSL";
-            bindings = <&kp SLASH>, <&kp BACKSLASH>;
-
-            #binding-cells = <0>;
-            mods = <(MOD_LSFT|MOD_RSFT)>;
-        };
-
-        KP_SL_BSL_CTRL_PIPE: KP_SL_BSL_CTRL_PIPE {
-            compatible = "zmk,behavior-mod-morph";
-            label = "KP_SL_BSL_CTRL_PIPE";
-            bindings = <&KP_SL_SHIFT_BSL>, <&kp PIPE>;
-
-            #binding-cells = <0>;
-            mods = <(MOD_RCTL|MOD_LCTL)>;
         };
 
         sticky_forever: sticky_forever {
