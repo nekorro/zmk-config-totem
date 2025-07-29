@@ -190,7 +190,6 @@
         )
     };
 
-    };
 
     combos {
         compatible = "zmk,combos";
