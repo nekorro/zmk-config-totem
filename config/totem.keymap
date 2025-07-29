@@ -281,10 +281,10 @@
 
         Button {
             bindings = <
-        &kp KP_NUMLOCK  &trans  &trans  &trans  &trans    &kp C_VOL_UP  &kp C_BRI_UP  &kp C_AC_DESKTOP_SHOW_ALL_WINDOWS  &trans  &bt BT_SEL 0
-        &trans          &trans  &trans  &trans  &trans    &kp C_VOL_DN  &kp C_BRI_DN  &trans                             &trans  &bt BT_SEL 1
-&tog 6  &trans          &trans  &trans  &trans  &trans    &kp C_MUTE    &trans        &trans                             &trans  &bt BT_SEL 2  &bt BT_CLR_ALL
-                                &trans  &trans  &trans    &trans        &trans        &trans
+        &kp KP_NUMLOCK  &trans  &trans  &trans  &trans            &kp C_VOL_UP  &kp C_BRI_UP  &kp C_AC_DESKTOP_SHOW_ALL_WINDOWS  &trans  &bt BT_SEL 0
+        &trans          &trans  &trans  &trans  &trans            &kp C_VOL_DN  &kp C_BRI_DN  &trans                             &trans  &bt BT_SEL 1
+&tog 6  &trans          &trans  &trans  &trans  &studio_unlock    &kp C_MUTE    &trans        &trans                             &trans  &bt BT_SEL 2  &bt BT_CLR_ALL
+                                &trans  &trans  &trans            &trans        &trans        &trans
             >;
         };
 
