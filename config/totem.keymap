@@ -292,10 +292,10 @@
 
         Nav {
             bindings = <
-        &tabber           &swapper_win       &swapper_mac  &trans     &kp ESC    &trans          &trans          &trans        &kp BSPC         &kp DELETE
-        &cm_gui           &cm_alt            &cm_sft       &cm_ctrl   &kp RET    &kp LEFT_ARROW  &kp DOWN_ARROW  &kp UP_ARROW  &kp RIGHT_ARROW  &trans
-&trans  &kp LC(LG(LEFT))  &kp LG(LC(RIGHT))  &trans        &kp PSCRN  &trans     &kp HOME        &kp PG_DN       &kp PG_UP     &kp END          &trans      &kp KP_NUM
-                                             &trans        &trans     &trans     &trans          &trans          &trans
+        &tabber           &swapper_win       &swapper_mac   &kp PSCRN  &kp ESC    &trans          &trans          &trans        &kp BSPC         &kp DELETE
+        &cm_gui           &cm_alt            &cm_sft        &cm_ctrl   &kp RET    &kp LEFT_ARROW  &kp DOWN_ARROW  &kp UP_ARROW  &kp RIGHT_ARROW  &trans
+&trans  &kp LC(LG(LEFT))  &kp LG(LC(RIGHT))  &kp BACKSPACE  &kp DEL    &trans     &kp HOME        &kp PG_DN       &kp PG_UP     &kp END          &trans      &kp KP_NUM
+                                             &trans         &trans     &trans     &trans          &trans          &trans
             >;
         };
 
